@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachow Car Care | Premium Detailing & Paint Correction | Cookeville, TN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant Editorial Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-clay: #F7F3EE; /* Soft Warm Clay Backdrop */
+            --card-white: #FFFFFF; /* Pure White Floating Cards */
+            --border-sand: #E5DDD4; /* Warm Sand Borders */
+            --border-active: #8E715D; /* Roasted Cognac Bronze Accent */
+            
+            --leather-dark: #241A15; /* Deep Luxurious Espresso / Chocolate */
+            --text-espresso: #201815; /* Dark Rich Coffee text */
+            --text-umber: #5E544D; /* Soft Raw Umber for descriptions */
+            
+            --font-editorial: 'Bitter', serif;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --max-width: 1100px;
+        }
+
+        /* Base & Reset Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-clay);
+            color: var(--text-espresso);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-clay);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-sand);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--border-active);
+        }
+
+        /* Container Utilities */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        /* Minimalist Action Buttons */
+        .btn-editorial {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--text-espresso);
+            color: var(--bg-clay);
+            font-family: var(--font-head);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 1.1rem 2.5rem;
+            border: 1px solid var(--text-espresso);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .btn-editorial:hover {
+            background-color: transparent;
+            color: var(--text-espresso);
+            transform: translateY(-2px);
+        }
+
+        /* Special Light Hero Button */
+        .btn-hero {
+            background-color: #FFFFFF;
+            color: var(--leather-dark);
+            border-color: #FFFFFF;
+        }
+
+        .btn-hero:hover {
+            background-color: transparent;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Reveal Animation Styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* Fixed Navigation Header - Dark Rich Espresso-Brown Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(36, 26, 21, 0.96);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            color: #FFFFFF;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
+            color: #FFFFFF;
+        }
+
+        .logo span {
+            color: var(--border-active);
+        }
+
+        .tab-navigation {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            background: none;
+            border: none;
+            font-size: 0.8rem;
+            font-family: var(--font-head);
+            color: #C2B8B0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #FFFFFF;
+        }
+
+        .nav-phone {
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #FFFFFF;
+            border-bottom: 1px solid var(--border-active);
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-phone:hover {
+            color: var(--border-active);
+            border-color: #FFFFFF;
+        }
+
+        /* --- MULTIPLE TABS SYSTEM LAYOUT --- */
+        .tab-pane {
+            display: none;
+            opacity: 0;
+        }
+
+        .tab-pane.active-pane {
+            display: block;
+            animation: fadeInTab 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section (Dark Espresso Theme Accent) */
+        .hero {
+            padding-top: 14rem; /* Spacing below fixed header */
+            padding-bottom: 8rem;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--leather-dark);
+            background-image: linear-gradient(
+                rgba(36, 26, 21, 0.75), 
+                rgba(36, 26, 21, 0.92)
+            ), url('https://images.unsplash.com/photo-1601362840469-51e4d8d59085?auto=format&fit=crop&w=2400&q=95');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #FFFFFF;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--border-active);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--border-active);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: var(--font-editorial);
+            font-weight: 300;
+            font-size: clamp(2.8rem, 6vw, 4.3rem);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            color: #FFFFFF;
+        }
+
+        .hero h1 em {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-weight: 400;
+            color: #C2B8B0;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: #C2B8B0;
+            max-width: 520px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-sidebar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero-sidebar {
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+                padding-left: 3rem;
+            }
+        }
+
+        .sidebar-item {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-label {
+            font-family: var(--font-head);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #C2B8B0;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-value {
+            font-family: var(--font-editorial);
+            font-size: 1.35rem;
+            color: #FFFFFF;
+        }
+
+        /* Minimalist Marquee */
+        .marquee-container {
+            border-bottom: 1px solid var(--border-sand);
+            padding: 1.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            width: max-content;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll-left 35s linear infinite;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-umber);
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Core Manifesto Section */
+        .manifesto-section {
+            padding: 8rem 0;
+        }
+
+        .manifesto-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .manifesto-grid {
+                grid-template-columns: 1fr 1.5fr;
+            }
+        }
+
+        .manifesto-tag {
+            font-family: var(--font-editorial);
+            font-size: 2.2rem;
+            font-weight: 300;
+            line-height: 1.25;
+            color: var(--text-espresso);
+        }
+
+        .manifesto-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-umber);
+        }
+
+        .manifesto-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Preservation Process Section */
+        .process-section {
+            padding: 12rem 0 8rem 0; /* Padding offsets top fixed header */
+            border-bottom: 1px solid var(--border-sand);
+        }
+
+        .process-header {
+            margin-bottom: 5rem;
+        }
+
+        .process-header span {
+            font-family: var(--font-head);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--border-active);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .process-header h2 {
+            font-family: var(--font-editorial);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Asymmetrical Editorial Cards on Soft Parchment Background */
+        .process-step {
+            background-color: var(--card-white);
+            border: 1px solid var(--border-sand);
+            padding: 4rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 340px;
+            box-shadow: 0 15px 40px rgba(142, 131, 120, 0.08); /* Warm, delicate organic drop-shadow */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .process-step:nth-child(even) {
+            transform: translateY(20px);
+        }
+
+        @media (max-width: 767px) {
+            .process-step:nth-child(even) {
+                transform: translateY(0);
+            }
+        }
+
+        .process-step:hover {
+            border-color: var(--border-active);
+            box-shadow: 0 20px 45px rgba(142, 131, 120, 0.12);
+        }
+
+        .step-num {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            color: var(--border-active);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .process-step h3 {
+            font-family: var(--font-head);
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text-espresso);
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-umber);
+            line-height: 1.6;
+        }
+
+        /* Restoration Configurator Sheet */
+        .calculator-section {
+            padding: 8rem 0;
+        }
+
+        .configurator-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 900px) {
+            .configurator-grid {
+                grid-template-columns: 1.3fr 1fr;
+            }
+        }
+
+        /* Clean Clickable Option Cards */
+        .config-category-group {
+            margin-bottom: 3rem;
+        }
+
+        .config-category-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .config-group-title {
+            font-family: var(--font-head);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-umber);
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .options-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 500px) {
+            .options-flex {
+                flex-direction: row;
+            }
+        }
+
+        .option-card {
+            flex: 1;
+            background-color: var(--card-white);
+            border: 1px solid var(--border-sand);
+            padding: 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(142, 131, 120, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: left;
+        }
+
+        .option-card:hover {
+            border-color: rgba(142, 131, 120, 0.4);
+        }
+
+        .option-card.active {
+            border-color: var(--border-active);
+            background-color: var(--card-white);
+            box-shadow: 0 15px 30px rgba(158, 133, 105, 0.15);
+        }
+
+        .option-name {
+            font-family: var(--font-head);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-espresso);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .option-sub {
+            font-size: 0.75rem;
+            color: var(--text-umber);
+        }
+
+        /* Physical Paper-Style Build Document Output */
+        .build-document {
+            background-color: var(--card-white);
+            border: 1px solid var(--border-sand);
+            padding: 3.5rem 3rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 25px 50px rgba(142, 131, 120, 0.1);
+        }
+
+        .doc-header {
+            border-bottom: 1px solid var(--border-sand);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .doc-header h4 {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-umber);
+        }
+
+        .doc-price {
+            font-family: var(--font-editorial);
+            font-size: clamp(3.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--text-espresso);
+            line-height: 1.1;
+            margin: 1rem 0;
+        }
+
+        .doc-formula-box {
+            font-size: 0.9rem;
+            color: var(--text-umber);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed var(--border-sand);
+            padding-bottom: 1.5rem;
+        }
+
+        /* Spec list indicators */
+        .doc-checklist {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .doc-check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--text-umber);
+            transition: color 0.3s ease;
+        }
+
+        .doc-check-item.active {
+            color: var(--text-espresso);
+            font-weight: 500;
+        }
+
+        .check-bullet {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--border-sand);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .doc-check-item.active .check-bullet {
+            background-color: var(--border-active);
+            box-shadow: 0 0 5px rgba(158, 133, 105, 0.5);
+        }
+
+        .doc-notice {
+            font-size: 0.72rem;
+            color: var(--text-umber);
+            line-height: 1.5;
+        }
+
+        /* Portfolio */
+        .portfolio-section {
+            padding: 12rem 0 8rem 0;
+        }
+
+        .portfolio-tabs {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .port-tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-umber);
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .port-tab-btn.active, .port-tab-btn:hover {
+            color: var(--text-espresso);
+            border-bottom-color: var(--text-espresso);
+        }
+
+        .portfolio-deck {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-deck {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .portfolio-image-card {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            aspect-ratio: 1 / 1;
+            border: 1px solid var(--border-sand);
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(142, 131, 120, 0.04);
+            transition: border-color 0.4s ease, transform 0.4s ease;
+        }
+
+        .portfolio-image-card.hide {
+            display: none;
+        }
+
+        .portfolio-image-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(247, 243, 238, 0.95));
+            z-index: 1;
+        }
+
+        .portfolio-image-card h4 {
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-espresso);
+            z-index: 2;
+            line-height: 1.3;
+        }
+
+        .portfolio-image-card:hover {
+            border-color: var(--border-active);
+        }
+
+        /* High-End Quote Spotlight (Tyler's Review) */
+        .testimonials-section {
+            padding: 12rem 0 8rem 0;
+            border-bottom: 1px solid var(--border-sand);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1.4fr 1fr;
+            }
+        }
+
+        .quote-block {
+            border-left: 2px solid var(--border-active);
+            padding-left: 2.5rem;
+        }
+
+        .quote-block blockquote {
+            font-family: var(--font-editorial);
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--text-espresso);
+        }
+
+        .quote-block .quote-author {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-umber);
+            font-weight: 600;
+        }
+
+        /* Schedule & Specs */
+        .schedule-block h3 {
+            font-family: var(--font-head);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-sand);
+            padding-bottom: 0.5rem;
+            color: var(--text-espresso);
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .specs-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.85rem 0;
+            border-bottom: 1px dashed var(--border-sand);
+            color: var(--text-umber);
+            font-size: 0.9rem;
+        }
+
+        .specs-list li span {
+            color: var(--text-espresso);
+            font-weight: 500;
+        }
+
+        .tag-matrix {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .matrix-tag {
+            background-color: var(--card-white);
+            border: 1px solid var(--border-sand);
+            padding: 0.45rem 1.1rem;
+            font-size: 0.8rem;
+            color: var(--text-umber);
+        }
+
+        /* Clean Studio Reservation Form */
+        .reservation-section {
+            padding: 8rem 0;
+        }
+
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .reservation-grid {
+                grid-template-columns: 1fr 1.2fr;
+            }
+        }
+
+        .reservation-info h2 {
+            font-family: var(--font-editorial);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .reservation-info p {
+            color: var(--text-umber);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        /* Organic Shortcut Diagnosis Tags (Highly pleasant and friendly) */
+        .diagnosis-matrix-desc {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-umber);
+            margin-bottom: 0.8rem;
+        }
+
+        .diagnosis-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .diagnosis-tag {
+            background-color: var(--card-white);
+            border: 1px solid var(--border-sand);
+            color: var(--text-umber);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .diagnosis-tag:hover, .diagnosis-tag.active {
+            border-color: var(--border-active);
+            color: var(--text-espresso);
+            background-color: var(--card-white);
+            box-shadow: 0 5px 15px rgba(158, 133, 105, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+            color: var(--text-umber);
+        }
+
+        /* Clean Parchment Fields */
+        .studio-field {
+            width: 100%;
+            background-color: var(--card-white);
+            border: 1px solid var(--border-sand);
+            border-radius: 0;
+            color: var(--text-espresso);
+            padding: 1.1rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .studio-field:focus {
+            outline: none;
+            border-color: var(--text-espresso);
+            box-shadow: 0 0 10px rgba(28, 25, 23, 0.03);
+        }
+
+        select.studio-field {
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%235E544D' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 1.1rem center;
+            background-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        textarea.studio-field {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-sand);
+            padding: 3rem 0;
+            color: var(--text-umber);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Header Navigation Capsule -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">CACHOW <span>CAR CARE</span></div>
+            <nav class="tab-navigation">
+                <button class="nav-link active" data-target="home-tab">Home</button>
+                <button class="nav-link" data-target="services-tab">Process & Cost</button>
+                <button class="nav-link" data-target="work-tab">Portfolio</button>
+                <button class="nav-link" data-target="book-tab">Reserve</button>
+            </nav>
+            <a href="tel:19319075844" class="nav-phone">+1 (931) 907-5844</a>
+        </div>
+    </header>
+
+    <!-- MAIN INTERFACE LAYOUT -->
+    <main class="container">
+
+        <!-- ================== TAB 1: HOME PANE ================== -->
+        <div class="tab-pane active-pane" id="home-tab">
+            <!-- Hero Section with Deep Luxurious Espresso Background Overlay -->
+            <section class="hero" id="hero-capsule">
+                <div class="container hero-layout reveal">
+                    <div>
+                        <div class="status-pill">
+                            <span class="status-dot"></span>
+                            Operating 24 Hours [1]
+                        </div>
+                        <h1>Restoring daily drivers and heritage collectors to <em>absolute purity</em>.</h1>
+                        <p class="hero-desc">Bespoke automotive detailing and clear-coat correction based on S Willow Ave, Cookeville, TN [1]. We specialize in detailed multi-stage compounding, micro-decontamination, and deep-pile carpet restorations [1].</p>
+                        <button class="btn-editorial btn-hero tab-trigger" data-target="book-tab">Request Consultation</button>
+                    </div>
+                    
+                    <div class="hero-sidebar">
+                        <div class="sidebar-item">
+                            <div class="sidebar-label">Facility Location</div>
+                            <div class="sidebar-value">S Willow Ave, Cookeville [1]</div>
+                        </div>
+                        <div class="sidebar-item">
+                            <div class="sidebar-label">Verified Performance</div>
+                            <div class="sidebar-value">5.0 Star Rating [1]</div>
+                        </div>
+                        <div class="sidebar-item">
+                            <div class="sidebar-label">Diagnostic Standard</div>
+                            <div class="sidebar-value">Meticulous and restive [1]</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minimalist Editorial Marquee -->
+            <div class="marquee-container reveal">
+                <div class="marquee-wrapper">
+                    <div class="marquee-content">
+                        &bull; BESPOKE PAINT CORRECTION &bull; NANO-CERAMIC PROTECTION &bull; DEEP RE-CLEANSING &bull; UNDER-SEAT EXTRACTION &bull; DETAILED FUEL RECESES &bull; CLEAN DOOR JAMBS &bull; COOKEVILLE, TENNESSEE
+                    </div>
+                    <div class="marquee-content">
+                        &bull; BESPOKE PAINT CORRECTION &bull; NANO-CERAMIC PROTECTION &bull; DEEP RE-CLEANSING &bull; UNDER-SEAT EXTRACTION &bull; DETAILED FUEL RECESES &bull; CLEAN DOOR JAMBS &bull; COOKEVILLE, TENNESSEE
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manifesto Section -->
+            <section class="manifesto-section reveal">
+                <div class="manifesto-grid">
+                    <div class="manifesto-tag">
+                        Obsessive physical detailing. We clean what others gloss over [1].
+                    </div>
+                    <div class="manifesto-body">
+                        <p>True detailing isn't just about exterior depth; it is about microscopic structural cleanliness. At Cachow Car Care, we operate where other details fall short. We dismantle deep track debris by sliding seat frames fully forward, hand-extract soil embedded below the carpet pile, and safely scrub road oil and grease from fuel doors and door jambs [1].</p>
+                        <p>Whether you're resetting a family traveler exposed to daily Cookeville clay or preparing a classic for collectors, we restore vehicles back to their baseline of purity—any hour of the day [1].</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mid-Page Testimonial Spot Block -->
+            <section class="testimonials-section reveal" style="padding-top: 2rem;">
+                <div class="testimonials-grid">
+                    <div class="quote-block">
+                        <blockquote>
+                            "Excellent service and car was CLEAN. The detailer did an amazing job and made my car look spotless inside and out. From underneath the seats to wiping the door jams and even cleaning inside the fuel door. You can tell even small details were attended to. Reasonably priced, I will definitely be coming back!"
+                        </blockquote>
+                        <div class="quote-author">— Tyler, Google Maps Review [1]</div>
+                    </div>
+                    <div class="schedule-block">
+                        <button class="btn-editorial tab-trigger" data-target="services-tab" style="width: 100%;">View Restoration Cost Builder</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================== TAB 2: PROCESS & COST PANE ================== -->
+        <div class="tab-pane" id="services-tab">
+            <!-- Process Step Timeline -->
+            <section class="process-section" id="services">
+                <div class="process-header reveal">
+                    <span>The Detailing Protocol</span>
+                    <h2>Three Stages of Structural Restoration</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step reveal">
+                        <div>
+                            <span class="step-num">Stage 01</span>
+                            <h3>Chemical Wash & Decon</h3>
+                            <p>High-foaming pre-wash to lift road dust, safe multi-bucket clear-coat massage, structural door jamb purges, and clear-cleaning of the fuel filler cavity [1].</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal delay-100">
+                        <div>
+                            <span class="step-num">Stage 02</span>
+                            <h3>Deep-Pile Fiber Extraction</h3>
+                            <p>Detailed vacuuming and steam extraction reaching deep under seat mounts, within track rails, and between structural console seams [1].</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal delay-200">
+                        <div>
+                            <span class="step-num">Stage 03</span>
+                            <h3>Clear-Coat Calibration</h3>
+                            <p>Single-stage orbital micro-polishing to buff away clear coat swirl marks, topped off with a hand-applied high-slick protective wax seal.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Restoration Configurator Sheet -->
+            <section class="calculator-section" id="molecular-calculator">
+                <div class="process-header reveal" style="text-align: center;">
+                    <span>Restoration Builder</span>
+                    <h2>Configure Your Detailing Specification</h2>
+                </div>
+                
+                <div class="configurator-grid reveal">
+                    <!-- Selectable Cards Area -->
+                    <div class="configurator-options">
+                        
+                        <!-- Config 1 -->
+                        <div class="config-category-group">
+                            <span class="config-group-title">1. Select Vehicle Footprint</span>
+                            <div class="options-flex">
+                                <div class="option-card active" data-group="vehicle" data-value="120" data-label="Coupe / Sedan">
+                                    <span class="option-name">Coupe & Sedan</span>
+                                    <span class="option-sub">Standard Compacts</span>
+                                </div>
+                                <div class="option-card" data-group="vehicle" data-value="160" data-label="Mid-Size SUV">
+                                    <span class="option-name">Mid-Size SUV</span>
+                                    <span class="option-sub">Crossovers & Wagons</span>
+                                </div>
+                                <div class="option-card" data-group="vehicle" data-value="220" data-label="Oversized / Truck">
+                                    <span class="option-name">Oversized / Truck</span>
+                                    <span class="option-sub">Large SUVs & Trucks</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Config 2 -->
+                        <div class="config-category-group">
+                            <span class="config-group-title">2. Select Cabin Soil Density</span>
+                            <div class="options-flex">
+                                <div class="option-card active" data-group="grime" data-value="0" data-label="Maintenance Clean">
+                                    <span class="option-name">Maintenance Clean</span>
+                                    <span class="option-sub">Light dust & vacuuming</span>
+                                </div>
+                                <div class="option-card" data-group="grime" data-value="40" data-label="Spills & Soil [1]">
+                                    <span class="option-name">Spills & Soil [1]</span>
+                                    <span class="option-sub">Normal mud & stains [1]</span>
+                                </div>
+                                <div class="option-card" data-group="grime" data-value="80" data-label="Heavy Red Clay [1]">
+                                    <span class="option-name">Heavy Red Clay [1]</span>
+                                    <span class="option-sub">Deep pet hair & clay [1]</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Config 3 -->
+                        <div class="config-category-group">
+                            <span class="config-group-title">3. Paint Buffer & Polish Adjustment</span>
+                            <div class="options-flex">
+                                <div class="option-card active" data-group="paint" data-value="0" data-label="None (Gloss Wash)">
+                                    <span class="option-name">None (Gloss Wash)</span>
+                                    <span class="option-sub">Chemical seal only</span>
+                                </div>
+                                <div class="option-card" data-group="paint" data-value="80" data-label="Single-Stage Buff">
+                                    <span class="option-name">Single-Stage Buff</span>
+                                    <span class="option-sub">Clears light swirl haze</span>
+                                </div>
+                                <div class="option-card" data-group="paint" data-value="160" data-label="Multi-Stage Compound">
+                                    <span class="option-name">Multi-Stage Compound</span>
+                                    <span class="option-sub">Heavy compounding correction</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Custom Client Build Document Output -->
+                    <div class="build-document">
+                        <div class="doc-header">
+                            <h4>Est. Restoration Cost</h4>
+                            <div class="doc-price" id="doc-price-display">$120</div>
+                        </div>
+                        
+                        <div class="doc-formula-box" id="doc-formula-desc">
+                            A clinical pass optimized for Coupe & Sedan platforms. Focusing on light dust & vacuuming inside, matched with a chemical seal only on the clear coat exterior.
+                        </div>
+                        
+                        <!-- Dynamic Diagnostic Checklist -->
+                        <ul class="doc-checklist">
+                            <li class="doc-check-item active">
+                                <span class="check-bullet"></span>
+                                <span>Foaming pre-wash & wheel-well wash</span>
+                            </li>
+                            <li class="doc-check-item active">
+                                <span class="check-bullet"></span>
+                                <span>Door jambs & fuel door hand detail [1]</span>
+                            </li>
+                            <li class="doc-check-item" id="chk-extraction-spec">
+                                <span class="check-bullet"></span>
+                                <span>Deep under-seat rail cleaning [1]</span>
+                            </li>
+                            <li class="doc-check-item" id="chk-polish-spec">
+                                <span class="check-bullet"></span>
+                                <span>Single-stage swirl compound correction</span>
+                            </li>
+                        </ul>
+
+                        <div class="doc-notice">
+                            Estimates reflect average paint density. Final clear-coat depth and fiber soil density is analyzed in-person prior to treatment.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================== TAB 3: PORTFOLIO PANE ================== -->
+        <div class="tab-pane" id="work-tab">
+            <section class="portfolio-section" id="portfolio">
+                <div class="process-header reveal">
+                    <span>Proof of Spec</span>
+                    <h2>Restored Profiles</h2>
+                </div>
+                
+                <div class="portfolio-tabs reveal">
+                    <button class="port-tab-btn active" data-filter="all">All Standards</button>
+                    <button class="port-tab-btn" data-filter="performance">Performance</button>
+                    <button class="port-tab-btn" data-filter="utility">Trucks & SUVs</button>
+                    <button class="port-tab-btn" data-filter="preservation">Preservation</button>
+                </div>
+
+                <div class="portfolio-deck reveal delay-100">
+                    <!-- Image Card 1 -->
+                    <div class="portfolio-image-card" data-category="performance" style="background-image: url('https://images.unsplash.com/photo-1601362840469-51e4d8d59085?auto=format&fit=crop&w=800&q=95');">
+                        <h4>Bespoke Paint Enhancement Polish</h4>
+                    </div>
+                    <!-- Image Card 2 -->
+                    <div class="portfolio-image-card" data-category="preservation" style="background-image: url('https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=800&q=95');">
+                        <h4>Spotless Under-Seat Extraction [1]</h4>
+                    </div>
+                    <!-- Image Card 3 -->
+                    <div class="portfolio-image-card" data-category="performance" style="background-image: url('https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=800&q=95');">
+                        <h4>Thick Active Foam Cleansing Bath</h4>
+                    </div>
+                    <!-- Image Card 4 -->
+                    <div class="portfolio-image-card" data-category="utility" style="background-image: url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=95');">
+                        <h4>Fuel Door & Door Jamb Reset [1]</h4>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================== TAB 4: RESERVE PANE ================== -->
+        <div class="tab-pane" id="book-tab">
+            <section class="testimonials-section">
+                <div class="testimonials-grid reveal">
+                    <div class="quote-block">
+                        <blockquote>
+                            "Excellent service and car was CLEAN. The detailer did an amazing job and made my car look spotless inside and out. From underneath the seats to wiping the door jams and even cleaning inside the fuel door. You can tell even small details were attended to. Reasonably priced, I will definitely be coming back!"
+                        </blockquote>
+                        <div class="quote-author">— Tyler, Google Maps Review [1]</div>
+                    </div>
+                    <div class="schedule-block">
+                        <h3>Operating Parameters</h3>
+                        <ul class="specs-list">
+                            <li>Monday - Sunday <span>Open 24 Hours</span> [1]</li>
+                            <li>Main Base <span>S Willow Ave, Cookeville</span> [1]</li>
+                        </ul>
+                        <p style="color: var(--text-umber); margin-bottom: 1.5rem; font-size: 0.95rem;">Providing clean detailing bays and mobile units directly to Cookeville and surrounding regions [1].</p>
+                        <div class="tag-matrix">
+                            <span class="matrix-tag">Cookeville</span>
+                            <span class="matrix-tag">Algood</span>
+                            <span class="matrix-tag">Baxter</span>
+                            <span class="matrix-tag">Monterey</span>
+                            <span class="matrix-tag">Sparta</span>
+                            <span class="matrix-tag">Livingston</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clean Studio Reservation Form -->
+            <section class="reservation-section" id="booking-wizard">
+                <div class="reservation-grid">
+                    <div class="reservation-info reveal">
+                        <span class="process-header" style="margin-bottom: 2rem;"><span>PIT Reservation</span></span>
+                        <h2>Request an Estimate</h2>
+                        <p>Transparent rates, convenient scheduling. Tell us your vehicle details and standard condition, and we will contact you directly with an upfront estimate.</p>
+                        <p style="font-family: var(--font-head); font-size: 1.5rem; color: var(--text-espresso);">
+                            Hotline Direct:<br>
+                            <a href="tel:19319075844" style="border-bottom: 1px solid var(--border-active);">+1 (931) 907-5844</a>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-panel reveal delay-100">
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" class="studio-field" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="studio-field" required placeholder="+1 (931) 907-5844">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Needed</label>
+                                <select id="service" name="service" class="studio-field" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="velocity_care">The Sonic Spec Wash ($160+)</option>
+                                    <option value="deep_sanctuary">The Track Sanctuary ($140+)</option>
+                                    <option value="absolute_reflection">The Grand Prix Reflect ($220+)</option>
+                                    <option value="lens_restore">Headlight Lens Restoration</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicle">Vehicle details</label>
+                                <input type="text" id="vehicle" name="vehicle" class="studio-field" placeholder="e.g., 2022 Chevrolet Corvette">
+                            </div>
+                            
+                            <!-- Customer Friendly System Diagnostics Tag Selector -->
+                            <div class="form-group">
+                                <div class="diagnosis-matrix-desc">Diagnostic Shortcuts</div>
+                                <div class="diagnosis-tags-row">
+                                    <span class="diagnosis-tag" data-text="Heavy pet hair woven into passenger seats.">[1] Pet Hair</span>
+                                    <span class="diagnosis-tag" data-text="Putnam County red clay mud caked on floor mats.">[1] Clay / Mud</span>
+                                    <span class="diagnosis-tag" data-text="Wipe down seat frames and underlying tracks thoroughly.">[1] Seat Tracks</span>
+                                    <span class="diagnosis-tag" data-text="Accumulated pollen on engine cover and hood hinges.">[1] Engine Bay</span>
+                                </div>
+                                <label for="message">Vehicle Condition & Special Requests</label>
+                                <textarea id="message" name="message" class="studio-field" placeholder="Describe any heavy dog hair, ground-in red clay, or specific requests (e.g. wiping down fuel door or seat extractions)."></textarea>
+                            </div>
+                            <button type="submit" class="btn-editorial" style="width: 100%;"><span>Request Consultation</span></button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Cachow Car Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* --- MULTIPLE TABS NAVIGATION LOGIC --- */
+            const navLinks = document.querySelectorAll('.nav-link');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            const tabTriggers = document.querySelectorAll('.tab-trigger');
+
+            function switchTab(targetTabId) {
+                // Update navigation links in header
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-target') === targetTabId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                // Toggle visibility of panes with a smooth fade
+                tabPanes.forEach(pane => {
+                    if (pane.id === targetTabId) {
+                        pane.classList.add('active-pane');
+                        // Instantly trigger reveal classes within active pane to prevent rendering gaps
+                        const activeReveals = pane.querySelectorAll('.reveal');
+                        activeReveals.forEach(el => el.classList.add('active'));
+                    } else {
+                        pane.classList.remove('active-pane');
+                    }
+                });
+
+                // Scroll back to top smoothly on transition
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Bind click events to navigation tabs
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const target = link.getAttribute('data-target');
+                    switchTab(target);
+                });
+            });
+
+            // Bind click events to internal page redirect CTA buttons
+            tabTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const target = trigger.getAttribute('data-target');
+                    switchTab(target);
+                });
+            });
+
+
+            /* --- NATIVE SCROLL REVEAL LOGIC --- */
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -5% 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+
+
+            /* --- LUXURY SPEC CONFIGURATOR SHEET LOGIC --- */
+            const optionCards = document.querySelectorAll('.option-card');
+            const docPrice = document.getElementById('doc-price-display');
+            const docDesc = document.getElementById('doc-formula-desc');
+
+            // Checklist DOM Nodes
+            const chkExtraction = document.getElementById('chk-extraction-spec');
+            const chkPolish = document.getElementById('chk-polish-spec');
+
+            // Config state
+            let selectedVehicle = { value: 120, label: "Coupe / Sedan" };
+            let selectedGrime = { value: 0, label: "Maintenance Clean", text: "light dust & vacuuming" };
+            let selectedPaint = { value: 0, label: "None (Gloss Wash)", text: "chemical seal only" };
+
+            function calculateConfiguredPrice() {
+                const total = parseFloat(selectedVehicle.value) + parseFloat(selectedGrime.value) + parseFloat(selectedPaint.value);
+                docPrice.innerText = `$${total}`;
+
+                // Update spec sheet copy
+                docDesc.innerText = `A clinical pass optimized for ${selectedVehicle.label} platforms. Focusing on ${selectedGrime.text} inside, matched with a ${selectedPaint.text} on the clear coat exterior.`;
+
+                // Update checklist indicators dynamically
+                if (parseFloat(selectedGrime.value) > 0) {
+                    chkExtraction.classList.add('active');
+                } else {
+                    chkExtraction.classList.remove('active');
+                }
+
+                if (parseFloat(selectedPaint.value) > 0) {
+                    chkPolish.classList.add('active');
+                } else {
+                    chkPolish.classList.remove('active');
+                }
+            }
+
+            // Click handling for Option Cards
+            optionCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const group = card.getAttribute('data-group');
+                    const value = card.getAttribute('data-value');
+                    const label = card.getAttribute('data-label');
+
+                    // Reset siblings in option group
+                    const groupSiblings = document.querySelectorAll(`.option-card[data-group="${group}"]`);
+                    groupSiblings.forEach(sib => sib.classList.remove('active'));
+
+                    // Activate current card
+                    card.classList.add('active');
+
+                    // Update states
+                    if (group === 'vehicle') {
+                        selectedVehicle = { value, label };
+                    } else if (group === 'grime') {
+                        let text = "light dust & vacuuming";
+                        if (value === "40") text = "targeted liquid stain extraction, deep rail vacuuming";
+                        if (value === "80") text = "deep fiber steam purging, intense pet hair pull [1]";
+                        selectedGrime = { value, label, text };
+                    } else if (group === 'paint') {
+                        let text = "chemical seal only";
+                        if (value === "80") text = "single-stage orbital buffing to sweep light oxidation";
+                        if (value === "160") text = "heavy compounding to strip clear coat swirls";
+                        selectedPaint = { value, label, text };
+                    }
+
+                    calculateConfiguredPrice();
+                });
+            });
+
+            // Initial compute on page load
+            calculateConfiguredPrice();
+
+
+            /* --- PORTFOLIO FILTER LOGIC --- */
+            const tabButtons = document.querySelectorAll('.port-tab-btn');
+            const galleryCards = document.querySelectorAll('.portfolio-image-card');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    galleryCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.classList.remove('hide');
+                        } else {
+                            card.classList.add('hide');
+                        }
+                    });
+                });
+            });
+
+
+            /* --- DIAGNOSTIC QUICK TAGS FOR THE FORM --- */
+            const diagTags = document.querySelectorAll('.diagnosis-tag');
+            const messageArea = document.getElementById('message');
+
+            diagTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    tag.classList.toggle('active');
+                    const textToInsert = tag.getAttribute('data-text');
+                    
+                    if (tag.classList.contains('active')) {
+                        if (messageArea.value.trim() === "") {
+                            messageArea.value = textToInsert;
+                        } else {
+                            messageArea.value += " " + textToInsert;
+                        }
+                    } else {
+                        messageArea.value = messageArea.value.replace(textToInsert, "").trim();
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>
